@@ -29,6 +29,9 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
 			this.mj_cmb_AlgorytmySort = new System.Windows.Forms.ComboBox();
 			this.mj_tb_MaksRozmTab = new System.Windows.Forms.TextBox();
 			this.mj_tb_DolnaGranica = new System.Windows.Forms.TextBox();
@@ -58,10 +61,12 @@
 			this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.mj_erp = new System.Windows.Forms.ErrorProvider(this.components);
+			this.mj_chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
 			this.mj_menu.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.mj_dgvTabelaWynikow)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.mj_dgvElementyTablicy)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.mj_erp)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.mj_chart)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// mj_cmb_AlgorytmySort
@@ -149,6 +154,7 @@
 			this.mj_btn_GrafiPrez.TabIndex = 22;
 			this.mj_btn_GrafiPrez.Text = "Graficzna prezentacja";
 			this.mj_btn_GrafiPrez.UseVisualStyleBackColor = true;
+			this.mj_btn_GrafiPrez.Click += new System.EventHandler(this.mj_btn_GrafiPrez_Click);
 			// 
 			// mj_btn_Reset
 			// 
@@ -299,11 +305,28 @@
 			// 
 			this.mj_erp.ContainerControl = this;
 			// 
+			// mj_chart
+			// 
+			chartArea1.Name = "ChartArea1";
+			this.mj_chart.ChartAreas.Add(chartArea1);
+			legend1.Name = "Legend1";
+			this.mj_chart.Legends.Add(legend1);
+			this.mj_chart.Location = new System.Drawing.Point(465, 162);
+			this.mj_chart.Name = "mj_chart";
+			series1.ChartArea = "ChartArea1";
+			series1.Legend = "Legend1";
+			series1.Name = "Series1";
+			this.mj_chart.Series.Add(series1);
+			this.mj_chart.Size = new System.Drawing.Size(922, 610);
+			this.mj_chart.TabIndex = 35;
+			this.mj_chart.Visible = false;
+			// 
 			// AnalizatorAlgorytmów
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1989, 954);
+			this.Controls.Add(this.mj_chart);
 			this.Controls.Add(this.mj_dgvTabelaWynikow);
 			this.Controls.Add(this.mj_dgvElementyTablicy);
 			this.Controls.Add(this.mj_cmb_AlgorytmySort);
@@ -330,6 +353,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.mj_dgvTabelaWynikow)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.mj_dgvElementyTablicy)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.mj_erp)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.mj_chart)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -366,6 +390,7 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
 		private System.Windows.Forms.ErrorProvider mj_erp;
+		private System.Windows.Forms.DataVisualization.Charting.Chart mj_chart;
 	}
 }
 

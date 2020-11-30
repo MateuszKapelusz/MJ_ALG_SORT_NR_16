@@ -300,5 +300,44 @@ namespace MJ_AlgorytmSortowania_16
 
 			mj_btn_TabPrez.Enabled = false;
 		}
+
+		private void mj_btn_GrafiPrez_Click(object sender, EventArgs e)
+		{
+			mj_dgvTabelaWynikow.Visible = false;
+			mj_dgvElementyTablicy.Visible = false;
+
+			// odsłonięcie kontrolki chart
+
+			mj_chart.Visible = true;
+
+			mj_chart.Titles.Add("Algorytm" + mj_cmb_AlgorytmySort.SelectedItem);
+
+			// zwymiarowanie
+
+			mj_chart.Location = new Point(200, 140);
+			mj_chart.Width = (int)(this.Width * 0.55);
+			mj_chart.Height = (int)(this.Height * 0.55);
+			mj_chart.BackColor = Color.Black; // ustawić na wybór !!!
+			mj_chart.Legends["Legend1"].Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+
+			// wektor pomocniczy
+			int[] RozmiarTabeli = new int[MaxRozmiarTabl];
+			for (int i = 0; i < MaxRozmiarTabl; i++)
+			{
+				RozmiarTabeli[i] = i;
+
+				// wykreslenie pomiaru
+				mj_chart.Series[0].Name = "Koszt czasowy z pomiaru";
+
+				//ustalenie atrybutów dla kreślonego wykresu funkcji, której dane reprezetuje seria[0]
+
+				mj_chart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+				mj_chart.Series[0].Color = Color.Black;
+				mj_chart.Series[0].BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDot;
+				mj_chart.Series[0].BorderWidth = 1;
+				mj_chart.Series[0].Points.DataBindY(RozmiarTabeli, WynikiZpomiaru);
+			}
+
+		}
 	}
 }
